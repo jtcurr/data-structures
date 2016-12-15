@@ -6,19 +6,26 @@ var LinkedList = function() {
 
   list.addToTail = function(value) {
     var result = Node(value);
-    list[value] = result;
+    if (list.tail !== null) {
+      list.tail['next'] = result;
+    }
+    list[value] = result; //am I adding a new object to the array in the right way.
     list.length++;
-    list.tail = result;
+    if (list.head === null) {
+      list.head = result;
+    }
+    list.tail = result; //assign a new tail
+    console.log(list);
+    debugger;
   };
 
   list.removeHead = function() {
-    var deletedNode = null;
     var currentNode = this.head;
+    var deletedNode = currentNode;
     this.head = currentNode.next;
-    deletedNode = currentNode;
     currentNode = null;
-    this.length --;
-    return deletedNode;
+    this.length--;
+    return deletedNode.value;
   };
 
   list.contains = function(target) {
@@ -39,3 +46,4 @@ var Node = function(value) {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
