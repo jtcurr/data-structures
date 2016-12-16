@@ -58,6 +58,9 @@ var Node = function(value) {
   return node;
 };
 
+// addToTail = O(1);
+// removeHead = O(1);
+// contains = O(n);
 /*
  * Complexity: What is the time complexity of the above functions?
  */
