@@ -6,29 +6,44 @@ var LinkedList = function() {
 
   list.addToTail = function(value) {
     var result = Node(value);
-    if (list.tail !== null) {
-      list.tail['next'] = result;
-    }
+    //debugger;
     list[value] = result; //am I adding a new object to the array in the right way.
-    list.length++;
+    if (list.tail !== null) {
+      list.tail.next = result;
+    }
     if (list.head === null) {
       list.head = result;
     }
     list.tail = result; //assign a new tail
-    console.log(list);
-    debugger;
+    list.length++;
+    //debugger;
   };
 
   list.removeHead = function() {
+    //locating the head of the list
     var currentNode = this.head;
-    var deletedNode = currentNode;
+    //create a variable to hold deleted value
+    var deletedValue = currentNode.value;
+    //reassign this.head to the node that the former head was pointing to(next)
     this.head = currentNode.next;
-    currentNode = null;
+    //remove currentNode from list
+    //debugger;
+    delete list[deletedValue];
+    // decrement length
     this.length--;
-    return deletedNode.value;
+    //return the deleted value
+    return deletedValue;
   };
 
   list.contains = function(target) {
+    //debugger;
+    for (var key in list) {
+      if (key === target.toString()) {
+      //if (list[key].value === target) {
+        return true;
+      }
+    }
+    return false;
   };
 
   return list;
