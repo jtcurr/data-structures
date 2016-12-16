@@ -41,15 +41,9 @@ HashTable.prototype.remove = function(k) {
     }
   }
 };
-
-// var getIndexBelowMaxForKey = function (item, max) {
-//   var result = 0;
-//   for (var i = 0; i < item.length; i++) {
-//     var char = item.charCodeAt(i);
-//     result = (result ^ char) + result;
-//   }
-//   return result % max;
-// };
+// insert = O(1), worst case O(n)
+// retrieve = O(1), worst case O(n)
+// remove = O(1), worst case O(n)
 
 /*
  * Complexity: What is the time complexity of the above functions?
