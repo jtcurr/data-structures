@@ -4,6 +4,11 @@
 var Graph = function() {
 };
 
+var graphNode = function(value) {
+  this.value = value;
+  this.edges = [];
+};
+
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
   var newNode = new graphNode(node);
@@ -60,10 +65,13 @@ Graph.prototype.forEachNode = function(cb) {
   }  
 };
 
-var graphNode = function(value) {
-  this.value = value;
-  this.edges = [];
-};
+// addNode = O(1)
+// contains = O(n)
+// removeNode = O(n)
+// hasEdge = worst case O(n)
+// addEdge = O(1)
+// removeEdge = O(1)
+// forEachNode = O(n)
 /*
  * Complexity: What is the time complexity of the above functions?
  */
