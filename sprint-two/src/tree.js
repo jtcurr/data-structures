@@ -1,5 +1,6 @@
 var Tree = function(value) {
-  var tree = Object.create(treeMethods);
+  var tree = {};
+  _.extend(tree, treeMethods);
   tree.value = value;
   tree.children = [];
   return tree;
