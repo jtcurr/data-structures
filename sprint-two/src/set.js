@@ -23,7 +23,9 @@ setPrototype.contains = function(item) {
 setPrototype.remove = function(item) {
   delete this._storage[item];
 };
-
+// add = O(1)
+// contains = O(n)
+// remove = O(1)
 /*
  * Complexity: What is the time complexity of the above functions?
  */
