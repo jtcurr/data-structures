@@ -6,17 +6,15 @@ var LinkedList = function() {
 
   list.addToTail = function(value) {
     var result = Node(value);
-    //debugger;
-    list[value] = result; //am I adding a new object to the array in the right way.
+    list[value] = result;
     if (list.tail !== null) {
       list.tail.next = result;
     }
     if (list.head === null) {
       list.head = result;
     }
-    list.tail = result; //assign a new tail
+    list.tail = result; 
     list.length++;
-    //debugger;
   };
 
   list.removeHead = function() {
@@ -36,10 +34,10 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    //debugger;
-    for (var key in list) {
-      if (key === target.toString()) {
-      //if (list[key].value === target) {
+    debugger;
+    var key = Object.keys(list);
+    for (var i = 0; i < key.length; i++) {
+      if (key[i] == JSON.stringify(target)) {
         return true;
       }
     }

@@ -51,5 +51,9 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  it('should accept falsy values', function() {
+    linkedList.addToTail(null);
+    expect(linkedList.contains(null)).to.equal(true);
+  });
   // add more tests here to test the functionality of linkedList
 });
