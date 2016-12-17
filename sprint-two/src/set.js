@@ -7,10 +7,16 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
+  if (typeof item === 'number') {
+    item = item.toString();
+  }
   this._storage[item] = item;
 };
 
 setPrototype.contains = function(item) {
+  if (typeof item === 'number') {
+    item = item.toString();
+  }
   var key = Object.keys(this._storage);
   for (var i = 0; i < key.length; i++) {
     if (key[i] === item) {

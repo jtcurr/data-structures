@@ -20,6 +20,16 @@ describe('graph', function() {
     expect(graph.contains(1)).to.equal(true);
   });
 
+  it('should store string values as nodes that were inserted', function() {
+    graph.addNode('Tobias');
+    expect(graph.contains('Tobias')).to.equal(true);
+  });
+
+  it('should store boolean values as nodes that were inserted', function() {
+    graph.addNode(true);
+    expect(graph.contains(true)).to.equal(true);
+  });
+
   it('should remove nodes that were inserted', function() {
     graph.addNode(2);
     expect(graph.contains(2)).to.equal(true);

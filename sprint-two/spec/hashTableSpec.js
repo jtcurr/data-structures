@@ -35,6 +35,15 @@ describe('hashTable', function() {
     expect(hashTable.retrieve('Steven')).to.equal(undefined);
   });
 
+  it('Should accept numbers as entries indexes', function() {
+    hashTable.insert(123, 456);
+    expect(hashTable.retrieve(123)).to.equal(456);
+  });
+  it('Should accept 0 as entries indexes', function() {
+    hashTable.insert(0, 555);
+    expect(hashTable.retrieve(0)).to.equal(555);
+  });
+
   it('should handle hash function collisions', function() {
     var v1 = 'val1';
     var v2 = 'val2';

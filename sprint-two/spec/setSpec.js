@@ -18,6 +18,13 @@ describe('set', function() {
     expect(set.contains('Susan Sarandon')).to.equal(true);
   });
 
+  it('should add integers to a set', function() {
+    set.add(123456);
+    set.add(12);
+    expect(set.contains(123456)).to.equal(true);
+    expect(set.contains(12)).to.equal(true);
+  });
+
   it('should remove values from a set', function() {
     set.add('Mel Gibson');
     set.remove('Mel Gibson');
