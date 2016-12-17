@@ -5,30 +5,36 @@ describe('doublelinkedList', function() {
     doublelinkedList = doubleLinkedList();
   });
 
-  xit('should have a head and tail', function() {
+  it('should have a head and tail', function() {
     expect(doublelinkedList).to.have.property('head');
     expect(doublelinkedList).to.have.property('tail');
-    expect(doublelinkedList).to.have.property('previous');
   });
 
-  xit('should have methods named "addToTail", "removeHead", and "contains"', function() {
+  it('should have methods named "addToTail", "removeHead", and "contains"', function() {
     expect(doublelinkedList.addToTail).to.be.a('function');
     expect(doublelinkedList.removeHead).to.be.a('function');
     expect(doublelinkedList.contains).to.be.a('function');
   });
 
-  xit('should designate a new tail when new nodes are added', function() {
+  it('should designate a new tail when new nodes are added', function() {
     doublelinkedList.addToTail(4);
     expect(doublelinkedList.tail.value).to.equal(4);
     doublelinkedList.addToTail(5);
     expect(doublelinkedList.tail.value).to.equal(5);
   });
 
+  it('should designate a new head when a new head added', function() {
+    doublelinkedList.addToTail(4);
+    doublelinkedList.addToTail(6);
+    doublelinkedList.addToHead(5);
+    expect(doublelinkedList.head.value).to.equal(5);
+  });
+
   it('each new node should point to previous node', function() {
     doublelinkedList.addToTail(4);
     doublelinkedList.addToTail(5);
     doublelinkedList.addToTail(6);
-    expect(doublelinkedList.prev.value).to.equal(6);
+    expect(doublelinkedList[6].prev).to.equal(doublelinkedList[5]);
   });
 
   it('should remove the head from the list when removeHead is called', function() {
