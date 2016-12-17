@@ -11,9 +11,8 @@ var treeMethods = {};
 
 treeMethods.addChild = function(value) {
   var child = Tree(value);
-  child.parent = tree.parent;
+  child.parent = this || null;
   this.parent = child;
-  debugger;
   this.children.push(child);
 };
 
@@ -30,18 +29,27 @@ treeMethods.contains = function(target) {
   return false;
 };
 
-// treeMethods.removeFromParent = function(target, parent) {
-//   debugger;
-//   if ( this.value === target) {
-//     if (parent !== undefined) {
-//       parent.children.splice(parent.children.indexOf(target), 1);
-//     }
-//     delete this;
-//   }
-// };
-//   for (var i = 0; i < this.children.length; i++) {
-//     treeMethods.removeChild(target,        this);
-//   }
+treeMethods.find = function(target) {
+  if (this.value === target) {
+    return this;
+  }
+  for (var i = 0; i < this.children.length; i++) {
+    return this.children[i].find(target);
+  }
+  return null;
+};
+
+treeMethods.removeFromParent = function(target) {
+  //find target in tree - returns node
+  var orphanNode = this.find(target);
+  //in node.parent.children we will remove association to target
+  for (var i = 0; i < orphanNode.parent.children.length; i++) {
+    if (orphanNode.parent.children[i].value === target) {
+      orphanNode.parent.children.splice(i, 1);
+    }
+  }
+};
+
 // addChild: O(1);
 // contains: O(n);
 /*

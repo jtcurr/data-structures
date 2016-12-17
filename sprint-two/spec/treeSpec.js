@@ -5,14 +5,13 @@ describe('tree', function() {
     tree = Tree();
   });
 
-  debugger;
-  xit('should have methods named "addChild" and "contains", and a property named "value"', function() {
+  it('should have methods named "addChild" and "contains", and a property named "value"', function() {
     expect(tree.addChild).to.be.a('function');
     expect(tree.contains).to.be.a('function');
     expect(tree.hasOwnProperty('value')).to.equal(true);
   });
 
-  xit('should add children to the tree', function() {
+  it('should add children to the tree', function() {
     tree.addChild(5);
     expect(tree.children[0].value).to.equal(5);
   });
@@ -48,10 +47,17 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
-  xit('should remove children from the tree', function() {
+  it('should be able to find a node given a value', function() {
+    tree.addChild(2);
+    tree.children[0].addChild(3);
+    tree.children[0].children[0].addChild(4);
+    expect(tree.find(4)).to.equal(tree.children[0].children[0].children[0]);
+  });
+
+  it('should remove children from the tree', function() {
     tree.addChild(6);
-    tree.addChild(5);
-    tree.removeChild(5);
+    tree.children[0].addChild(5);
+    tree.removeFromParent(5);
     expect(tree.contains(5)).to.equal(false);
   });
 });
