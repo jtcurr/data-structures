@@ -34,7 +34,6 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    debugger;
     var key = Object.keys(list);
     for (var i = 0; i < key.length; i++) {
       if (key[i] == JSON.stringify(target)) {
