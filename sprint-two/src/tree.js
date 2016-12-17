@@ -25,6 +25,19 @@ treeMethods.contains = function(target) {
   }
   return false;
 };
+
+// treeMethods.removeFromParent = function(target, parent) {
+//   debugger;
+//   if ( this.value === target) {
+//     if (parent !== undefined) {
+//       parent.children.splice(parent.children.indexOf(target), 1);
+//     }
+//     delete this;
+//   }
+// };
+//   for (var i = 0; i < this.children.length; i++) {
+//     treeMethods.removeChild(target,        this);
+//   }
 // addChild: O(1);
 // contains: O(n);
 /*
