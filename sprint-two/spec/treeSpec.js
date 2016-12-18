@@ -60,4 +60,15 @@ describe('tree', function() {
     tree.removeFromParent(5);
     expect(tree.contains(5)).to.equal(false);
   });
+
+
+  it('should be able to apply a callback to each node', function() {
+    tree.addChild(6);
+    tree.addChild(5);
+    tree.children[0].addChild(2);
+    tree.traverse(function () { this.value = 1; });
+    expect(tree.children[0].value).to.equal(1);
+    expect(tree.children[1].value).to.equal(1);
+    expect(tree.children[0].children[0].value).to.equal(1);
+  });
 });

@@ -39,6 +39,13 @@ treeMethods.find = function(target) {
   return null;
 };
 
+treeMethods.traverse = function (func) {
+  func.call(this);
+  for (var i = 0; i < this.children.length; i++) {
+    this.children[i].traverse(func);
+  }
+};
+
 treeMethods.removeFromParent = function(target) {
   //find target in tree - returns node
   var orphanNode = this.find(target);
