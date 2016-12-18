@@ -24,6 +24,12 @@ describe('set', function() {
     expect(set.contains(123456)).to.equal(true);
     expect(set.contains(12)).to.equal(true);
   });
+  
+  it('should add objects to set', function() {
+    var obj = {1 : 'a', 2: 'b'};
+    set.add(obj);
+    expect(set.contains(obj)).to.equal(true);
+  });
 
   it('should remove values from a set', function() {
     set.add('Mel Gibson');
@@ -32,3 +38,4 @@ describe('set', function() {
   });
 
 });
+
