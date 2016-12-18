@@ -8,7 +8,6 @@ var doubleLinkedList = function() {
     var result = Node(value);
     //stores the incoming value in storage list
     list[value] = result;
-    debugger;
     //if the tail is not undefined, then the next value of the current tail will be that of the incoming node
     if (list.tail !== null) {
       list.tail.next = result;
@@ -43,10 +42,8 @@ var doubleLinkedList = function() {
     //create a new node for the incoming value
     var newNode = Node(value);
     //new node 'next' value will point to list.head object
-    debugger;
     newNode.next = list.head;
     //list.head will be reassigned to new node
-    debugger
     list.head = newNode;
     //new node will be added to list
     list[value] = newNode;
