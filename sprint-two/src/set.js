@@ -7,19 +7,21 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  if (typeof item === 'number') {
-    item = item.toString();
-  }
-  this._storage[item] = item;
+  // if (typeof item === 'number') {
+  //   item = item.toString();
+  // }
+  var index = JSON.stringify(item);
+  this._storage[index] = item;
 };
 
 setPrototype.contains = function(item) {
-  if (typeof item === 'number') {
-    item = item.toString();
-  }
+  // if (typeof item === 'number') {
+  //   item = item.toString();
+  // }
+  index = JSON.stringify(item);
   var key = Object.keys(this._storage);
   for (var i = 0; i < key.length; i++) {
-    if (key[i] === item) {
+    if (key[i] === index) {
       return true;
     }
   }
@@ -27,7 +29,8 @@ setPrototype.contains = function(item) {
 };
 
 setPrototype.remove = function(item) {
-  delete this._storage[item];
+  var index = JSON.stringify(item);
+  delete this._storage[index];
 };
 // add = O(1)
 // contains = O(n)
