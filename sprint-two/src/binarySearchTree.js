@@ -43,6 +43,14 @@ BinarySearchTree.prototype.depthFirstLog = function(cb) {
     this.right.depthFirstLog(cb);
   }
 };
+
+// BinarySearchTree.prototype.breadthFirstLog = function() {
+//   var treeLog = [];
+
+//   return function() {
+//     treeLog.push(this);
+//   };
+// };
 // insert = O(log n) worst case O(n)
 // contains = O(log n) worst case O(n)
 // depthFirstLog = O(n)
